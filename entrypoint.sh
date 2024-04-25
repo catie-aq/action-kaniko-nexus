@@ -84,8 +84,7 @@ cat <<EOF >/kaniko/.docker/config.json
 {
     "auths": {
         "https://${REGISTRY}": {
-            "username": "${USERNAME}",
-            "password": "${PASSWORD}"
+            "auth": "$(echo -n ${USERNAME}:${PASSWORD} | base64)"
         }
     }
 }
